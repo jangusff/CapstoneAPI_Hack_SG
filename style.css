@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 25px;
+  border: 2px solid black;
+  //background-color: #3b2c2c;
+}
+
+.browse-cards-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+}
+
+.card {
+  width: 18rem;
+  flex-basis: auto;
+  padding: 10px;
+  margin: 8px;
+  border: 1px solid red;
+}
+
+.card-img-top {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 120px;
+}
+
+.card-release-date {
+  display: inline-block;
+}
+
