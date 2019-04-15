@@ -25,9 +25,24 @@ function btnHndlr_LearnMore() {
   });
 }
 
+function displayFetchErr(err) {
+  $('#initial-fetch-err').text(`Sorry. Unable to retrieve film information. Cannot proceed.`);
+  if (err.length > 0) {
+    $('#initial-fetch-err').append(`<p class='errmsg-display'>(Err: ${err})</p>`);
+  }
+  $('button.enter-site').addClass('button-hide');
+}
+
+
 function displayBrowsePage(fetchedFilmDB) {
   filmDB = fetchedFilmDB;
-  console.log(filmDB);
+  if (filmDB.length > 0 && filmDB.some(element2Chk => {
+    return Object.keys(element2Chk).length > 0;
+  })) {
+    console.log(filmDB);
+  } else {
+    displayFetchErr('Retrieved empty film database');
+  }
 }
 
 function getFilmDatabase() {
@@ -44,13 +59,7 @@ function getFilmDatabase() {
       throw new Error(response.statusText);
     })
     .then(responseJson => displayBrowsePage(responseJson))
-    .catch(err => {
-      $('#initial-fetch-err').text(`Unable to retrieve film information. Cannot proceed.`);
-      if (err.message.length > 0) {
-        $('#initial-fetch-err').append(`<p class='errmsg-display'>(Err: ${err.message})</p>`);
-      }
-    });
-    
+    .catch(err => displayFetchErr(err.message));    
 }
 
  
