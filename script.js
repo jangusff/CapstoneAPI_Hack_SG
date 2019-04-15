@@ -10,6 +10,11 @@ const endPtVehicles = 'vehicles';
 
 let filmDB = [];
 
+function setActiveAppPhase(targetPhase) {
+  $('.app-phase').removeClass("toggle__active");
+  targetPhase.addClass("toggle__active");
+}
+
 function btnHndlr_EnterSite() {
   $('.intro-page').on('click', '.enter-site', event => {
     event.preventDefault();
@@ -39,7 +44,7 @@ function displayBrowsePage(fetchedFilmDB) {
   if (filmDB.length > 0 && filmDB.some(element2Chk => {
     return Object.keys(element2Chk).length > 0;
   })) {
-    console.log(filmDB);
+    setActiveAppPhase($('.browse-cards-page'));
   } else {
     displayFetchErr('Retrieved empty film database');
   }

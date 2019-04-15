@@ -50,3 +50,11 @@ body {
 .toggle__active {
   display: block;
 }
+
+.toggle__active.browse-cards-page {
+  display: flex;
+}
+
+.button-hide {
+  display: none;
+}
