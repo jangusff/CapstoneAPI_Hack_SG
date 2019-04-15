@@ -38,12 +38,57 @@ function displayFetchErr(err) {
   $('button.enter-site').addClass('button-hide');
 }
 
+function renderFilmCard(filmObj, index) {
+  
+  if (index === 0) {
+    $('.app-phase.browse-cards-page').html(`<div class="card">\
+            <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">\
+            <p class="card-release-date">Year</p>\
+            <div class="card-body">\
+              <h5 class="card-title">Title of Film</h5>\
+            </div>\
+            <div class="card-footer">\
+              <button class="card-button" type="submit">Learn More</button>\
+            </div>\
+          </div>`);
+
+  } else {
+
+    $('.card').last().after(`<div class="card">\
+            <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">\
+            <p class="card-release-date">Year</p>\
+            <div class="card-body">\
+              <h5 class="card-title">Title of Film</h5>\
+            </div>\
+            <div class="card-footer">\
+              <button class="card-button" type="submit">Learn More</button>\
+            </div>\
+          </div>`);
+  }
+  /*
+          <div class="card">
+            <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">
+            <p class="card-release-date">Year</p>
+            <div class="card-body">
+              <h5 class="card-title">Title of Film</h5>
+            </div>
+            <div class="card-footer">
+              <button class="card-button" type="submit">Learn More</button>
+            </div>
+          </div>
+  */
+
+
+}
 
 function displayBrowsePage(fetchedFilmDB) {
+  let filmObj;
+
   filmDB = fetchedFilmDB;
   if (filmDB.length > 0 && filmDB.some(element2Chk => {
     return Object.keys(element2Chk).length > 0;
   })) {
+    filmDB.forEach(renderFilmCard);
     setActiveAppPhase($('.browse-cards-page'));
   } else {
     displayFetchErr('Retrieved empty film database');
