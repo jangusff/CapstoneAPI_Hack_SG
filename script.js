@@ -25,13 +25,12 @@ function btnHndlr_LearnMore() {
   });
 }
 
-function displayResults(responseJson) {
-  filmDB = responseJSon;
+function displayBrowsePage(fetchedFilmDB) {
+  filmDB = fetchedFilmDB;
   console.log(filmDB);
 }
 
 function getFilmDatabase() {
-    
   const fieldsToIncl = 'fields=id,title,release_date,description';
   const url = baseURL + '/' + endPtFilms + '?' + fieldsToIncl;
 
@@ -44,9 +43,14 @@ function getFilmDatabase() {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => console.log(responseJson))
-    .catch(err => console.log(`Something went wrong: ${err.message}`));
-
+    .then(responseJson => displayBrowsePage(responseJson))
+    .catch(err => {
+      $('#initial-fetch-err').text(`Unable to retrieve film information. Cannot proceed.`);
+      if (err.message.length > 0) {
+        $('#initial-fetch-err').append(`<p class='errmsg-display'>(Err: ${err.message})</p>`);
+      }
+    });
+    
 }
 
  

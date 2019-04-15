@@ -7,121 +7,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css">
   </head>
 
   <body>
 
-      <div class="app-phase intro-page">
+      <div class="app-phase intro-page toggle__active">
           <header class="intro-header">
             <h1>Discover the Films of Studio Ghibli</h1>
             <h3>Founded in 1985, Studio Ghibli is a Japanese animation film studio that has produced several highly acclaimed feature films.</h3>
-            <h4>Click the button below to start browsing</h4>
+            <h4>Click the button to start browsing</h4>
           </header>
           <button class="enter-site" type="submit">Enter</button>
-
+          <p id="initial-fetch-err"></p>
       </div>
 
 
       <main role="main">
 
 
-      <div class="app-phase browse-cards-page">
+        <div class="app-phase browse-cards-page">
 
-        <div class="card">
-          <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">
-          <p class="card-release-date">Year</p>
-          <div class="card-body">
-            <h5 class="card-title">Title of Film</h5>
+          <div class="card">
+            <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">
+            <p class="card-release-date">Year</p>
+            <div class="card-body">
+              <h5 class="card-title">Title of Film</h5>
+            </div>
+            <div class="card-footer">
+              <button class="card-button" type="submit">Learn More</button>
+            </div>
           </div>
-          <div class="card-footer">
-            <button class="card-button" type="submit">Learn More</button>
+
+          <div class="card">
+            <img src="images/FromUpOnPoppyHill-45db04e4-304a-4933-9823-33f389e8d74d.jpg" class="card-img-top" alt="..">
+            <p class="card-release-date">Year</p>
+            <div class="card-body">
+              <h5 class="card-title">Title of Film</h5>
+            </div>
+            <div class="card-footer">
+              <button class="card-button" type="submit">Learn More</button>
+            </div>
           </div>
+
+          <div class="card">
+            <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">
+            <p class="card-release-date">Year</p>
+            <div class="card-body">
+              <h5 class="card-title">Title of Film</h5>
+            </div>
+            <div class="card-footer">
+              <button class="card-button" type="submit">Learn More</button>
+            </div>
+          </div>
+
         </div>
 
-        <div class="card">
-          <img src="images/FromUpOnPoppyHill-45db04e4-304a-4933-9823-33f389e8d74d.jpg" class="card-img-top" alt="..">
-          <p class="card-release-date">Year</p>
-          <div class="card-body">
-            <h5 class="card-title">Title of Film</h5>
-          </div>
-          <div class="card-footer">
-            <button class="card-button" type="submit">Learn More</button>
-          </div>
+
+        <div class="app-phase details-view">
+          <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" alt="..">
+          
+          <section class="details film-descrip">
+            <h2>Description</h2>
+            <p>Spirited Away is an Oscar winning Japanese animated film about a ten year old girl who wanders away from her parents along a path that leads to a world ruled by strange and unusual monster-like animals. Her parents have been changed into pigs along with others inside a bathhouse full of these creatures. Will she ever see the world how it once was?</p>
+          </section>
+          
+          <section class="details cast">
+            <h2>Characters</h2>
+            <ul>
+              <li>Suzuki Blondeau</li>
+              <li>Timo Potter</li>
+              <li>Kakashan Timoshi</li>
+            </ul>
+          </section>
+
+          <section class="details trailer">
+            <h2>Play Trailer</h2>
+            <p>PLACEHOLDER FOR YOUTUBE</p>
+          </section>
+
+          <button class="back-to-browse-button" type="submit">Back</button>
         </div>
-
-        <div class="card">
-          <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">
-          <p class="card-release-date">Year</p>
-          <div class="card-body">
-            <h5 class="card-title">Title of Film</h5>
-          </div>
-          <div class="card-footer">
-            <button class="card-button" type="submit">Learn More</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">
-          <p class="card-release-date">Year</p>
-          <div class="card-body">
-            <h5 class="card-title">Title of Film</h5>
-          </div>
-          <div class="card-footer">
-            <button class="card-button" type="submit">Learn More</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">
-          <p class="card-release-date">Year</p>
-          <div class="card-body">
-            <h5 class="card-title">Title of Film</h5>
-          </div>
-          <div class="card-footer">
-            <button class="card-button" type="submit">Learn More</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">
-          <p class="card-release-date">Year</p>
-          <div class="card-body">
-            <h5 class="card-title">Title of Film</h5>
-          </div>
-          <div class="card-footer">
-            <button class="card-button" type="submit">Learn More</button>
-          </div>
-        </div>
-
-      </div>
-
-
-      <div class="app-phase details-view">
-        <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg"
-        
-        <section class="details film-descrip">
-          <h2>Description</h2>
-          <p>Spirited Away is an Oscar winning Japanese animated film about a ten year old girl who wanders away from her parents along a path that leads to a world ruled by strange and unusual monster-like animals. Her parents have been changed into pigs along with others inside a bathhouse full of these creatures. Will she ever see the world how it once was?</p>
-        </section>
-        
-        <section class="details cast">
-          <h2>Characters</h2>
-          <ul>
-            <li>Suzuki Blondeau</li>
-            <li>Timo Potter</li>
-            <li>Kakashan Timoshi</li>
-          </ul>
-        </section>
-
-        <section class="details trailer">
-          <h2>Play Trailer</h2>
-          <p>PLACEHOLDER FOR YOUTUBE</p>
-        </section>
-
-        <button class="back-to-browse-button" type="submit">Back</button>
-
-      </div>
 
     </main>
 

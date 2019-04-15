@@ -8,6 +8,7 @@ body {
   //background-color: #3b2c2c;
 }
 
+
 .browse-cards-page {
   display: flex;
   flex-wrap: wrap;
@@ -37,3 +38,15 @@ body {
   display: inline-block;
 }
 
+.details-view > img {
+  float: right;
+  width: 30%;
+}
+
+.app-phase {
+  display: none;
+}
+
+.toggle__active {
+  display: block;
+}
