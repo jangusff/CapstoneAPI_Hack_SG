@@ -15,6 +15,18 @@ function setActiveAppPhase(targetPhase) {
   targetPhase.addClass("toggle__active");
 }
 
+function findById(arrToSrch, idNum) {
+  let retObj = {};
+
+  arrToSrch.forEach(itemObj => {
+    if (itemObj.id === idNum) {
+      retObj = itemObj;
+    }
+  });
+  
+  return retObj;
+}
+
 function btnHndlr_EnterSite() {
   $('.intro-page').on('click', '.enter-site', event => {
     event.preventDefault();
@@ -26,9 +38,48 @@ function btnHndlr_EnterSite() {
 function btnHndlr_LearnMore() {
   $('.card-footer').on('click', '.card-button', event => {
     event.preventDefault();
-    alert("Learn More was Clicked");
+    let targetID = $(event.target).parents('.card').attr('id');
+
+    let foundFilmObj = findById(filmDB, targetID);
+
+    if (jQuery.isEmptyObject(foundFilmObj)) {
+
+      alert("Object was empty.");
+
+    } else {
+      let filmTitle = foundFilmObj.title;
+      let filmRelease = foundFilmObj.release_date;
+      let filmDescr = foundFilmObj.description;
+      
+      $('.app-phase.details-view').html(`<img src="images/${targetID}.jpg" alt="${filmTitle}">
+        
+        <section class="details film-descrip">
+          <h2>Description</h2>
+          <p>${filmDescr}</p>
+        </section>
+        
+        <section class="details cast">
+          <h2>Characters</h2>
+          <ul>
+            <li>Suzuki Blondeau</li>
+            <li>Timo Potter</li>
+            <li>Kakashan Timoshi</li>
+          </ul>
+        </section>
+
+        <section class="details trailer">
+          <h2>Play Trailer</h2>
+          <p>PLACEHOLDER FOR YOUTUBE</p>
+        </section>
+
+        <button class="back-to-browse-button" type="submit">Back</button>`);
+
+      setActiveAppPhase($('.details-view'));
+    } // check for empty object
+
   });
 }
+
 
 function displayFetchErr(err) {
   $('#initial-fetch-err').text(`Sorry. Unable to retrieve film information. Cannot proceed.`);
@@ -39,13 +90,16 @@ function displayFetchErr(err) {
 }
 
 function renderFilmCard(filmObj, index) {
+  let filmID = filmObj.id;
+  let filmTitle = filmObj.title;
+  let filmRelease = filmObj.release_date;
   
   if (index === 0) {
-    $('.app-phase.browse-cards-page').html(`<div class="card">\
-            <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">\
-            <p class="card-release-date">Year</p>\
+    $('.app-phase.browse-cards-page').html(`<div class="card" id="${filmID}">\
+            <img src="images/${filmID}.jpg" class="card-img-top" alt="${filmTitle}">\
+            <p class="card-release-date">${filmRelease}</p>\
             <div class="card-body">\
-              <h5 class="card-title">Title of Film</h5>\
+              <h5 class="card-title">${filmTitle}</h5>\
             </div>\
             <div class="card-footer">\
               <button class="card-button" type="submit">Learn More</button>\
@@ -54,31 +108,17 @@ function renderFilmCard(filmObj, index) {
 
   } else {
 
-    $('.card').last().after(`<div class="card">\
-            <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">\
-            <p class="card-release-date">Year</p>\
+    $('.card').last().after(`<div class="card" id="${filmID}">\
+            <img src="images/${filmID}.jpg" class="card-img-top" alt="${filmTitle}">\
+            <p class="card-release-date">${filmRelease}</p>\
             <div class="card-body">\
-              <h5 class="card-title">Title of Film</h5>\
+              <h5 class="card-title">${filmTitle}</h5>\
             </div>\
             <div class="card-footer">\
               <button class="card-button" type="submit">Learn More</button>\
             </div>\
           </div>`);
   }
-  /*
-          <div class="card">
-            <img src="images/SpiritedAway-dc2e6bd1-8156-4886-adff-b39e6043af0c.jpg" class="card-img-top" alt="..">
-            <p class="card-release-date">Year</p>
-            <div class="card-body">
-              <h5 class="card-title">Title of Film</h5>
-            </div>
-            <div class="card-footer">
-              <button class="card-button" type="submit">Learn More</button>
-            </div>
-          </div>
-  */
-
-
 }
 
 function displayBrowsePage(fetchedFilmDB) {
@@ -89,6 +129,7 @@ function displayBrowsePage(fetchedFilmDB) {
     return Object.keys(element2Chk).length > 0;
   })) {
     filmDB.forEach(renderFilmCard);
+    btnHndlr_LearnMore();
     setActiveAppPhase($('.browse-cards-page'));
   } else {
     displayFetchErr('Retrieved empty film database');
@@ -119,7 +160,7 @@ function displayResults(responseJson) {
 
 function formInit() {
   btnHndlr_EnterSite();
-  btnHndlr_LearnMore();
+  
 }
 
 
