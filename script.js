@@ -10,6 +10,8 @@ const endPtVehicles = 'vehicles';
 
 let filmDB = [];
 
+
+
 function setActiveAppPhase(targetPhase) {
   $('.app-phase').removeClass("toggle__active");
   targetPhase.addClass("toggle__active");
@@ -27,10 +29,27 @@ function findById(arrToSrch, idNum) {
   return retObj;
 }
 
+function getVideoID(targetID) {
+  Object.keys(videoID).forEach(function(key) {
+    if (key === targetID) {
+      return videoID[key];
+    }
+  });
+}
+
+
 function btnHndlr_EnterSite() {
   $('.intro-page').on('click', '.enter-site', event => {
     event.preventDefault();
     getFilmDatabase();
+  });
+}
+
+
+function btnHndlr_BackToBrowse() {
+  $('.details-view').on('click', '.back-to-browse-button', event => {
+    event.preventDefault();
+    setActiveAppPhase($('.browse-cards-page'));
   });
 }
 
@@ -50,7 +69,12 @@ function btnHndlr_LearnMore() {
       let filmTitle = foundFilmObj.title;
       let filmRelease = foundFilmObj.release_date;
       let filmDescr = foundFilmObj.description;
+      let filmVideoID = getVideoID(targetID);
       
+     // if (filmVideoID.length === 0) {
+     //   filmVideoID = "ByXuk9QqQkk";
+     // }
+
       $('.app-phase.details-view').html(`<img src="images/${targetID}.jpg" alt="${filmTitle}">
         
         <section class="details film-descrip">
@@ -69,12 +93,15 @@ function btnHndlr_LearnMore() {
 
         <section class="details trailer">
           <h2>Play Trailer</h2>
-          <p>PLACEHOLDER FOR YOUTUBE</p>
+          <div class="iframe-container">
+            <iframe src="https://www.youtube.com/embed/${filmVideoID}?start=2&modestbranding=1&showinfo=0&rel=0&fs=0" width="450" height="300" frameborder="0"></iframe>
+          </div>
         </section>
 
         <button class="back-to-browse-button" type="submit">Back</button>`);
 
       setActiveAppPhase($('.details-view'));
+      btnHndlr_BackToBrowse();
     } // check for empty object
 
   });
