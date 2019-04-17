@@ -30,11 +30,13 @@ function findById(arrToSrch, idNum) {
 }
 
 function getVideoID(targetID) {
+  let retVal = "";
   Object.keys(videoID).forEach(function(key) {
     if (key === targetID) {
-      return videoID[key];
+      retVal = videoID[key];
     }
   });
+  return retVal;
 }
 
 
@@ -71,10 +73,10 @@ function btnHndlr_LearnMore() {
       let filmDescr = foundFilmObj.description;
       let filmVideoID = getVideoID(targetID);
       
-     // if (filmVideoID.length === 0) {
-     //   filmVideoID = "ByXuk9QqQkk";
-     // }
-
+      if (filmVideoID === "") {
+        // set class identifier such that some message like "Trailer not Available" displays instead of iframe stuff
+      }
+     
       $('.app-phase.details-view').html(`<img src="images/${targetID}.jpg" alt="${filmTitle}">
         
         <section class="details film-descrip">
