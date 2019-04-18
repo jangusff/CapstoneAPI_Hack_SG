@@ -169,7 +169,7 @@ function getFilmDatabase() {
   const fieldsToIncl = 'fields=id,title,release_date,description';
   const url = baseURL + '/' + endPtFilms + '?' + fieldsToIncl;
 
-  console.log(url);
+  //console.log(url);
 
   fetch(url)
     .then(response => {
@@ -182,10 +182,6 @@ function getFilmDatabase() {
     .catch(err => displayFetchErr(err.message));    
 }
 
- 
-function displayResults(responseJson) {
-  console.log(responseJson);
-}
 
 function formInit() {
   btnHndlr_EnterSite();
