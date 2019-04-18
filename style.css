@@ -43,6 +43,12 @@ body {
   width: 30%;
 }
 
+section.details {
+  width: 50%;
+
+}
+
+
 .trailer {
   clear: right;
 }
@@ -77,3 +83,9 @@ body {
   width: 50%;
   height: 50%;
 }
+
+/*
+.back-to-browse-button {
+  display: inline-block;
+}
+*/

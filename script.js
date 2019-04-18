@@ -97,11 +97,11 @@ function btnHndlr_LearnMore() {
           <h2>Play Trailer</h2>
           <div class="iframe-container">
             <iframe src="https://www.youtube.com/embed/${filmVideoID}?start=2&modestbranding=1&showinfo=0&rel=0&fs=0" width="450" height="300" frameborder="0"></iframe>
+            
           </div>
         </section>
-
         <button class="back-to-browse-button" type="submit">Back</button>`);
-
+                
       setActiveAppPhase($('.details-view'));
       btnHndlr_BackToBrowse();
     } // check for empty object
