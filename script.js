@@ -52,6 +52,7 @@ function btnHndlr_BackToBrowse() {
   $('.details-view').on('click', '.back-to-browse-button', event => {
     event.preventDefault();
     setActiveAppPhase($('.browse-cards-page'));
+    scrollTo(0,0);
   });
 }
 
@@ -76,34 +77,30 @@ function btnHndlr_LearnMore() {
       if (filmVideoID === "") {
         // set class identifier such that some message like "Trailer not Available" displays instead of iframe stuff
       }
-     
-      $('.app-phase.details-view').html(`<img src="images/${targetID}.jpg" alt="${filmTitle}">
-        
-        <section class="details film-descrip">
-          <h2>Description</h2>
-          <p>${filmDescr}</p>
-        </section>
-        
-        <section class="details cast">
-          <h2>Characters</h2>
+
+          
+      $('.details.feature-img').html(`<img src="images/${targetID}.jpg" alt="${filmTitle}">`);
+      $('.details.film-descrip').html(`<h2>Description</h2>
+          <p>${filmDescr}</p>`
+      );
+      $('.details.cast').html(`<h2>Characters</h2>
           <ul>
             <li>Suzuki Blondeau</li>
             <li>Timo Potter</li>
             <li>Kakashan Timoshi</li>
-          </ul>
-        </section>
-
-        <section class="details trailer">
-          <h2>Play Trailer</h2>
+          </ul>`
+      );
+      $('.details.trailer').html(`<h2>Play Trailer</h2>
           <div class="iframe-container">
-            <iframe src="https://www.youtube.com/embed/${filmVideoID}?start=2&modestbranding=1&showinfo=0&rel=0&fs=0" width="450" height="300" frameborder="0"></iframe>
-            
+            <iframe src="https://www.youtube.com/embed/${filmVideoID}?start=2&modestbranding=1&showinfo=0&rel=0&fs=0" frameborder="0"></iframe>
           </div>
-        </section>
-        <button class="back-to-browse-button" type="submit">Back</button>`);
-                
-      setActiveAppPhase($('.details-view'));
+          <button class="back-to-browse-button" type="submit">Back</button>`
+      );
+      /*
+            <iframe src="https://www.youtube.com/embed/${filmVideoID}?start=2&modestbranding=1&showinfo=0&rel=0&fs=0" width="450" height="300" frameborder="0"></iframe>
+      */
       btnHndlr_BackToBrowse();
+      setActiveAppPhase($('.details-view'));
     } // check for empty object
 
   });
