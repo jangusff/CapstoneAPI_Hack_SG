@@ -4,7 +4,7 @@
 
 body {
   padding: 2%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 
@@ -41,6 +41,10 @@ body {
 .details.feature-img {
   float: right;
   width: 33%;
+}
+
+.details.feature-img > img {
+  max-height: 400px;
 }
 
 .trailer {
