@@ -5,7 +5,6 @@
 body {
   padding: 2%;
   border: 2px solid black;
-  //background-color: #3b2c2c;
 }
 
 
@@ -32,6 +31,7 @@ body {
   border-radius: 4px;
   padding: 5px;
   width: 120px;
+  height: 162px;
 }
 
 .card-release-date {
@@ -40,7 +40,7 @@ body {
 
 .details.feature-img {
   float: right;
-  width: 30%;
+  width: 33%;
 }
 
 .trailer {
@@ -78,8 +78,26 @@ body {
   height: 100%;
 }
 
-/*
 .back-to-browse-button {
-  display: inline-block;
+  width: 130px;
+  padding: 15px;
+  border: none;
+  background-color: #3470AB;
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+  margin-left: 10%;
+  //margin-right: auto;
 }
-*/
+
+@media screen and (min-width: 400px) {
+
+  .iframe-container iframe{
+    width: 65%;
+    height: 65%;
+  }
+
+}
