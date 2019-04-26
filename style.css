@@ -2,11 +2,40 @@
   box-sizing: border-box;
 }
 
-body {
-  padding: 2%;
-  /* border: 2px solid black; */
+html {
+  /*
+    background-image: linear-gradient(to right bottom, rgb(204, 214, 223), rgba(255,0,0,0));
+    */
 }
 
+body {
+  padding: 2%;
+  border: 2px solid black; */
+}
+
+header   {
+  //font-family: 'Shojumaru', cursive;
+  //font-family: 'Chau Philomene One', sans-serif;
+   font-family: 'Signika', sans-serif;
+  //font-family: 'Aclonica', sans-serif;
+  //font-family: 'Oregano', cursive;
+  color: #5F96CD;
+  
+}
+
+header > .asdf {
+  //font-family: 'Fjalla One', sans-serif;
+  font-family: 'Signika', sans-serif;
+}
+
+.intro-img {
+  /* float: right; */
+  background-color: aquamarine;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  
+}
 
 .browse-cards-page {
   display: flex;
@@ -36,6 +65,13 @@ body {
 
 .card-release-date {
   display: inline-block;
+  font-size: 12px;
+}
+
+.card-title {
+  font-family: 'Baloo', cursive;
+  height: 18px;
+   //font-size: 22px;
 }
 
 .details.feature-img {

@@ -95,7 +95,7 @@ function renderFilmCard(filmObj, index) {
   if (index === 0) {
     $('.app-phase.browse-cards-page').html(`<div class="card" id="${filmID}">\
             <img src="images/${filmID}.jpg" class="card-img-top" alt="${filmTitle}">\
-            <p class="card-release-date">${filmRelease}</p>\
+            <p class="card-release-date">(released ${filmRelease})</p>\
             <div class="card-body">\
               <h5 class="card-title">${filmTitle}</h5>\
             </div>\
@@ -108,7 +108,7 @@ function renderFilmCard(filmObj, index) {
 
     $('.card').last().after(`<div class="card" id="${filmID}">\
             <img src="images/${filmID}.jpg" class="card-img-top" alt="${filmTitle}">\
-            <p class="card-release-date">${filmRelease}</p>\
+            <p class="card-release-date">(released ${filmRelease})</p>\
             <div class="card-body">\
               <h5 class="card-title">${filmTitle}</h5>\
             </div>\
