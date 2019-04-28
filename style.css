@@ -3,6 +3,7 @@
 }
 
 html {
+  background-color: #0D798D;
   /*
     background-image: linear-gradient(to right bottom, rgb(204, 214, 223), rgba(255,0,0,0));
     */
@@ -19,22 +20,59 @@ header   {
    font-family: 'Signika', sans-serif;
   //font-family: 'Aclonica', sans-serif;
   //font-family: 'Oregano', cursive;
-  color: #5F96CD;
+  color: #294044;
   
 }
 
-header > .asdf {
-  //font-family: 'Fjalla One', sans-serif;
-  font-family: 'Signika', sans-serif;
+header > h1 {
+  color: #1C1F20;
 }
 
 .intro-img {
-  /* float: right; */
-  background-color: aquamarine;
-  position: fixed;
+  float: right;
+  //position: fixed;
   bottom: 0;
   right: 0;
   
+}
+
+nav {
+  padding-top: 10px;
+  padding-left: 60px;
+  padding-right: 60px;
+  position: relative;
+  height: 90px;
+  background-color: gray;
+  text-align: right;
+}
+
+nav .nav-title {
+  position: relative;
+  right: 10%;
+}
+
+nav ul {
+  position: relative;
+  bottom: 10px;
+  right: 10%;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.nav-img {
+  position: absolute;
+  text-align: right;
+  top: 7px;
+  right: 19px;
+  height: 79px;
+  border-radius: 45%;
+}
+
+nav li.first-nav::after {
+  content: " |";
 }
 
 .browse-cards-page {

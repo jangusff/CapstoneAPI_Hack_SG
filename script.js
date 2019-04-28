@@ -13,9 +13,12 @@ let CHARACTER_DB = {};
 let LASTVIEWED_ID = '';
 
 
-function setActiveAppPhase(targetPhase) {
+function setActiveAppPhase(targetPhase, showNav) {
   $('.app-phase').removeClass("toggle__active");
   targetPhase.addClass("toggle__active");
+  if (showNav) {
+    $('nav').addClass("toggle__active");
+  }
 }
 
 function findById(arrToSrch, idNum) {
@@ -53,7 +56,7 @@ function btnHndlr_EnterSite() {
 function btnHndlr_BackToBrowse() {
   $('.details-view').on('click', '.back-to-browse-button', event => {
     event.preventDefault();
-    setActiveAppPhase($('.browse-cards-page'));
+    setActiveAppPhase($('.browse-cards-page'), true);
     if (LASTVIEWED_ID !== "") {
      let elmnt = document.getElementById(LASTVIEWED_ID)
      elmnt.scrollIntoView();
@@ -161,7 +164,7 @@ function renderDetailsView(targetID) {
       $('.details.trailer').html(`<h2>Play Trailer</h2>${trailerHtml}`);
       
       LASTVIEWED_ID = targetID;
-      setActiveAppPhase($('.details-view'));
+      setActiveAppPhase($('.details-view'), true);
       scrollTo(0,0);
 
     } // check for non-existent film object
@@ -177,7 +180,7 @@ function displayBrowsePage(fetchedFILM_DB) {
   })) {
     FILM_DB.forEach(renderFilmCard);
     btnHndlr_LearnMore();
-    setActiveAppPhase($('.browse-cards-page'));
+    setActiveAppPhase($('.browse-cards-page'), true);
   } else {
     filmDBFetchErr('Retrieved empty film database');
   }
