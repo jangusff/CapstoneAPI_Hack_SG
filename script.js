@@ -48,13 +48,23 @@ function btnHndlr_EnterSite() {
   $('.intro-page').on('click', '.enter-site', event => {
     event.preventDefault();
     getFilmDatabase();
-    getCharacterDatabase();
+    
+    if (jQuery.isEmptyObject(CHARACTER_DB)) {
+      getCharacterDatabase();
+    }
+  });
+}
+
+function btnHndlr_BackToHome() {
+  $('nav').on('click', '.nav-home', event => {
+    event.preventDefault();
+    setActiveAppPhase($('.intro-page'));
   });
 }
 
 
 function btnHndlr_BackToBrowse() {
-  $('.details-view').on('click', '.back-to-browse-button', event => {
+  $('nav').on('click', '.nav-browse', event => {
     event.preventDefault();
     setActiveAppPhase($('.browse-cards-page'), true);
     if (LASTVIEWED_ID !== "") {
@@ -65,6 +75,8 @@ function btnHndlr_BackToBrowse() {
     }
   });
 }
+
+
 
 
 function btnHndlr_LearnMore() {
@@ -235,6 +247,7 @@ function getCharacterDatabase() {
 
 function formInit() {
   btnHndlr_EnterSite();
+  btnHndlr_BackToHome();
   btnHndlr_BackToBrowse();
   
 }
