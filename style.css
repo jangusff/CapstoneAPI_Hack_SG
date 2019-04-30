@@ -67,21 +67,35 @@ nav li.nav-home {
   display: none;
 }
 
-header   {
+header, .details-view   {
   font-family: 'Signika', sans-serif;
-  color: #294044; 
+  color: #1D1905
 }
 
 header > h1 {
-  color: #1C1F20;
+  color: #F4BE40;
+  background-color: #016375;
+  padding: 17px;
+  border: 3px solid #013842;
+  border-radius: 10px;
 }
 
 .intro-img {
   float: right;
-  //position: fixed;
   bottom: 0;
   right: 0;
-  
+}
+
+button.enter-site, button.back-to-browse-button {
+  padding: 21px;
+  border: none;
+  background-color: #B47B00;
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 8px 0px 10px 15px;
 }
 
 .browse-cards-page {
@@ -122,9 +136,19 @@ header > h1 {
   margin: 8px 2px 10px 0px;
 }
 
-
+.card-button {
+  background-color: #FFD06A;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+/*
 .details-float-container {
   overflow: auto;
+}
+*/
+
+.details-view {
+  max-width: 900px;
 }
 
 .details.feature-img {
@@ -175,7 +199,7 @@ header > h1 {
   height: 100%;
 }
 
-
+/*
 .back-to-browse-button {
   padding: 21px;
   border: none;
@@ -186,9 +210,8 @@ header > h1 {
   cursor: pointer;
   display: block;
   margin: 8px auto 10px auto;
-  
 }
-
+*/
 
 @media screen and (min-width: 425px) {
 
