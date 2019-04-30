@@ -55,7 +55,7 @@ function btnHndlr_EnterSite() {
   });
 }
 
-function btnHndlr_BackToHome() {
+function navHndlr_BackToHome() {
   $('nav').on('click', '.nav-home', event => {
     event.preventDefault();
     setActiveAppPhase($('.intro-page'));
@@ -63,7 +63,7 @@ function btnHndlr_BackToHome() {
 }
 
 
-function btnHndlr_BackToBrowse() {
+function navHndlr_BackToBrowse() {
   $('nav').on('click', '.nav-browse', event => {
     event.preventDefault();
     setActiveAppPhase($('.browse-cards-page'), true);
@@ -76,7 +76,18 @@ function btnHndlr_BackToBrowse() {
   });
 }
 
-
+function btnHndlr_BackToBrowse() {
+  $('.details-view').on('click', '.back-to-browse-button', event => {
+    event.preventDefault();
+    setActiveAppPhase($('.browse-cards-page'), true);
+    if (LASTVIEWED_ID !== "") {
+     let elmnt = document.getElementById(LASTVIEWED_ID)
+     elmnt.scrollIntoView();
+    } else {
+      scrollTo(0,0);
+    }
+  });
+}
 
 
 function btnHndlr_LearnMore() {
@@ -247,9 +258,9 @@ function getCharacterDatabase() {
 
 function formInit() {
   btnHndlr_EnterSite();
-  btnHndlr_BackToHome();
+  navHndlr_BackToHome();
+  navHndlr_BackToBrowse();
   btnHndlr_BackToBrowse();
-  
 }
 
 
