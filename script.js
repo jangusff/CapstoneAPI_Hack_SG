@@ -23,14 +23,12 @@ function setActiveAppPhase(targetPhase, showNav) {
 
 function findById(arrToSrch, idNum) {
   let retObj = {};
-
   arrToSrch.forEach(itemObj => {
     if (itemObj.id === idNum) {
       retObj = itemObj;
     }
   });
-  
-  return retObj;
+    return retObj;
 }
 
 function getVideoID(targetID) {
@@ -40,64 +38,8 @@ function getVideoID(targetID) {
       retVal = videoID[key];
     }
   });
-  return retVal;
+    return retVal;
 }
-
-
-function btnHndlr_EnterSite() {
-  $('.intro-page').on('click', '.enter-site', event => {
-    event.preventDefault();
-    getFilmDatabase();
-    
-    if (jQuery.isEmptyObject(CHARACTER_DB)) {
-      getCharacterDatabase();
-    }
-  });
-}
-
-function navHndlr_BackToHome() {
-  $('nav').on('click', '.nav-home', event => {
-    event.preventDefault();
-    setActiveAppPhase($('.intro-page'));
-  });
-}
-
-
-function navHndlr_BackToBrowse() {
-  $('nav').on('click', '.nav-browse', event => {
-    event.preventDefault();
-    setActiveAppPhase($('.browse-cards-page'), true);
-    if (LASTVIEWED_ID !== "") {
-     let elmnt = document.getElementById(LASTVIEWED_ID)
-     elmnt.scrollIntoView();
-    } else {
-      scrollTo(0,0);
-    }
-  });
-}
-
-function btnHndlr_BackToBrowse() {
-  $('.details-view').on('click', '.back-to-browse-button', event => {
-    event.preventDefault();
-    setActiveAppPhase($('.browse-cards-page'), true);
-    if (LASTVIEWED_ID !== "") {
-     let elmnt = document.getElementById(LASTVIEWED_ID)
-     elmnt.scrollIntoView();
-    } else {
-      scrollTo(0,0);
-    }
-  });
-}
-
-
-function btnHndlr_LearnMore() {
-  $('.card-footer').on('click', '.card-button', event => {
-    event.preventDefault();
-    let targetID = $(event.target).parents('.card').attr('id');
-    renderDetailsView(targetID);
-  });
-}
-
 
 function filmDBFetchErr(err) {
   $('#initial-fetch-err').text(`Sorry. Unable to retrieve film information. Cannot proceed.`);
@@ -112,36 +54,43 @@ function charDBFetchErr(err) {
   CHARACTER_DB = {};
 }
 
+function displayBrowsePage(fetchedFILM_DB) {
+  let filmObj;
+
+  FILM_DB = fetchedFILM_DB;
+  if (FILM_DB.length > 0 && FILM_DB.some(element2Chk => {
+    return Object.keys(element2Chk).length > 0;
+  })) {
+    FILM_DB.forEach(renderFilmCard);
+    btnHndlr_LearnMore();
+    setActiveAppPhase($('.browse-cards-page'), true);
+  } else {
+    filmDBFetchErr('Retrieved empty film database');
+  }
+}
+
+function htmlForCard(filmID, filmTitle, filmRelease) {
+  return `<div class="card" id="${filmID}">\
+            <img src="images/${filmID}.jpg" class="card-img-top" alt="${filmTitle}">\
+            <p class="card-release-date">(released ${filmRelease})</p>\
+            <div class="card-body">\
+              <h5 class="card-title">${filmTitle}</h5>\
+            </div>\
+            <div class="card-footer">\
+              <button class="card-button" type="submit">Learn More</button>\
+            </div>\
+          </div>`;
+}
 
 function renderFilmCard(filmObj, index) {
   let filmID = filmObj.id;
   let filmTitle = filmObj.title;
   let filmRelease = filmObj.release_date;
-  
+    
   if (index === 0) {
-    $('.app-phase.browse-cards-page').html(`<div class="card" id="${filmID}">\
-            <img src="images/${filmID}.jpg" class="card-img-top" alt="${filmTitle}">\
-            <p class="card-release-date">(released ${filmRelease})</p>\
-            <div class="card-body">\
-              <h5 class="card-title">${filmTitle}</h5>\
-            </div>\
-            <div class="card-footer">\
-              <button class="card-button" type="submit">Learn More</button>\
-            </div>\
-          </div>`);
-
+    $('.app-phase.browse-cards-page').html(htmlForCard(filmID, filmTitle, filmRelease));
   } else {
-
-    $('.card').last().after(`<div class="card" id="${filmID}">\
-            <img src="images/${filmID}.jpg" class="card-img-top" alt="${filmTitle}">\
-            <p class="card-release-date">(released ${filmRelease})</p>\
-            <div class="card-body">\
-              <h5 class="card-title">${filmTitle}</h5>\
-            </div>\
-            <div class="card-footer">\
-              <button class="card-button" type="submit">Learn More</button>\
-            </div>\
-          </div>`);
+    $('.card').last().after(htmlForCard(filmID, filmTitle, filmRelease));
   }
 }
 
@@ -193,22 +142,6 @@ function renderDetailsView(targetID) {
     } // check for non-existent film object
 }
 
-
-function displayBrowsePage(fetchedFILM_DB) {
-  let filmObj;
-
-  FILM_DB = fetchedFILM_DB;
-  if (FILM_DB.length > 0 && FILM_DB.some(element2Chk => {
-    return Object.keys(element2Chk).length > 0;
-  })) {
-    FILM_DB.forEach(renderFilmCard);
-    btnHndlr_LearnMore();
-    setActiveAppPhase($('.browse-cards-page'), true);
-  } else {
-    filmDBFetchErr('Retrieved empty film database');
-  }
-}
-
 function getFilmDatabase() {
   const fieldsToIncl = 'fields=id,title,release_date,description';
   const url = baseURL + '/' + endPtFilms + '?' + fieldsToIncl;
@@ -223,7 +156,6 @@ function getFilmDatabase() {
     .then(responseJson => displayBrowsePage(responseJson))
     .catch(err => filmDBFetchErr(err.message));    
 }
-
 
 function getCharacterDatabase() {
   const fieldsToIncl = 'fields=id,name,films';
@@ -253,6 +185,58 @@ function getCharacterDatabase() {
       });
     })
     .catch(err => charDBFetchErr(err.message));    
+}
+
+function btnHndlr_EnterSite() {
+  $('.intro-page').on('click', '.enter-site', event => {
+    event.preventDefault();
+    getFilmDatabase();
+    
+    if (jQuery.isEmptyObject(CHARACTER_DB)) {
+      getCharacterDatabase();
+    }
+  });
+}
+
+function navHndlr_BackToHome() {
+  $('nav').on('click', '.nav-home', event => {
+    event.preventDefault();
+    setActiveAppPhase($('.intro-page'));
+  });
+}
+
+function navHndlr_BackToBrowse() {
+  $('nav').on('click', '.nav-browse', event => {
+    event.preventDefault();
+    setActiveAppPhase($('.browse-cards-page'), true);
+    if (LASTVIEWED_ID !== "") {
+     let elmnt = document.getElementById(LASTVIEWED_ID)
+     elmnt.scrollIntoView();
+    } else {
+      scrollTo(0,0);
+    }
+  });
+}
+
+function btnHndlr_BackToBrowse() {
+  $('.details-view').on('click', '.back-to-browse-button', event => {
+    event.preventDefault();
+    setActiveAppPhase($('.browse-cards-page'), true);
+    if (LASTVIEWED_ID !== "") {
+     let elmnt = document.getElementById(LASTVIEWED_ID)
+     elmnt.scrollIntoView();
+    } else {
+      scrollTo(0,0);
+    }
+  });
+}
+
+function btnHndlr_LearnMore() {
+  $('.card-footer').on('click', '.card-button', event => {
+    event.preventDefault();
+    let targetID = $(event.target).parents('.card').attr('id');
+    renderDetailsView(targetID);
+  });
 }
 
 

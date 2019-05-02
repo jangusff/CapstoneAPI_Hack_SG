@@ -4,16 +4,6 @@
 
 html {
   background-color: #0D798D;
-  /*
-    background-image: linear-gradient(to right bottom, rgb(204, 214, 223), rgba(255,0,0,0));
-    */
-}
-
-body {
-  /*
-  padding: 1%;
-  border: 2px solid black;
-  */
 }
 
 main, .intro-page {
@@ -51,7 +41,7 @@ nav ul li {
   background-color: #F4BE40;
   cursor: pointer;
   border-radius: 4px;
-  padding: 2px;
+  padding: 6px;
 }
 
 nav li.nav-home {
@@ -100,6 +90,11 @@ button.enter-site, button.back-to-browse-button {
   margin: 8px 0px 10px 15px;
 }
 
+button.back-to-browse-button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .browse-cards-page {
   display: flex;
   flex-wrap: wrap;
@@ -142,12 +137,8 @@ button.enter-site, button.back-to-browse-button {
   background-color: #FFD06A;
   border: 1px solid #ddd;
   border-radius: 4px;
+  padding: 5px;
 }
-/*
-.details-float-container {
-  overflow: auto;
-}
-*/
 
 .details-view {
   max-width: 900px;
@@ -161,13 +152,16 @@ button.enter-site, button.back-to-browse-button {
 }
 
 .details.feature-img > img {
-  /* max-height: 400px;  */
   height: auto;
   max-width: 100%;
 }
 
 .trailer {
   clear: right;
+}
+
+.no trailer {
+  color: #FFD06A;
 }
 
 .app-phase {
@@ -201,20 +195,6 @@ button.enter-site, button.back-to-browse-button {
   height: 100%;
   border: thick double #32a1ce;
 }
-
-/*
-.back-to-browse-button {
-  padding: 21px;
-  border: none;
-  background-color: #B51605;
-  color: #ffffff;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: block;
-  margin: 8px auto 10px auto;
-}
-*/
 
 @media screen and (min-width: 425px) {
 
