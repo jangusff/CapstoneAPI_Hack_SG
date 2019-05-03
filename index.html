@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width">
     <title>Discover Studio Ghibli</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">  
-    <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
-        <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Signika|Baloo|Playball" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
   </head>
 
   <body>
 
     <nav role="navigation" class="app-phase">
       <p class="nav-title">The Films of Studio Ghibli</p>
-      <img src="images/TotoroPlush1.jpg" alt="totoro image" class="nav-img">
+      <img class="nav-img" src="images/TotoroPlush1.jpg" alt="totoro image" >
       <ul>
         <li class="nav-home">Home</li>
         <li class="nav-browse">Browse Films</li>      
@@ -24,13 +22,13 @@
 
     <div class="app-phase intro-page toggle__active">
       <header class="intro-header">
-        <h1>Discover the Films of Studio Ghibli</h1>
-        <h3>Founded in 1985, Studio Ghibli is a Japanese animation film studio that has produced several highly acclaimed feature films.</h3>
-        <img class="intro-img" src="images/StudioGhibliLogoTP1.png">         
-        <h3>Of recent note, famed director and animator Hayao Miyazaki has <a class="newest-film-link" href="https://en.wikipedia.org/wiki/How_Do_You_Live%3F_(film)">reportedly</a> come out of retirement to direct the first feature-length film for Studio Ghibli in several years.  It has a tentative release date set for 2020.</h3>
-        <h3>You are cordially invited to browse some of the most popular and visually stunning films produced by Studio Ghibli.</h3>
-        <h4>Click the button to start browsing</h4>
-       </header>
+        <h1 role="banner">Discover the Films of Studio Ghibli</h1>
+      </header>
+      <p>Founded in 1985, Studio Ghibli is a Japanese animation film studio that has produced several highly acclaimed feature films.</p>
+      <img class="intro-img" src="images/StudioGhibliLogoTP1.png" alt="studio ghibli logo">         
+      <p>Of recent note, famed director and animator Hayao Miyazaki has <a class="newest-film-link" target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/How_Do_You_Live%3F_(film)">reportedly</a> come out of retirement to direct the first feature-length film for Studio Ghibli in several years.  It has a tentative release date set for 2020.</p>
+      <p>You are cordially invited to browse some of the most popular and visually stunning films produced by Studio Ghibli.</p>
+      <p id="txt-click-to-start">Click the button to start browsing.</p>
       <button class="enter-site" type="submit">Enter</button>
       <p id="initial-fetch-err"></p>
     </div>

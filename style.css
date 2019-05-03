@@ -58,7 +58,7 @@ nav li.nav-home {
   display: none;
 }
 
-header, .details-view   {
+.intro-page, .details-view   {
   font-family: 'Signika', sans-serif;
   color: #1D1905
 }
@@ -76,6 +76,20 @@ header > h1 {
   bottom: 0;
   right: 0;
   max-height: 150px;
+}
+
+.intro-page p {
+  font-size: 1.17em;
+}
+
+#txt-click-to-start {
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.newest-film-link {
+  color: #C9C9C9;
+  text-decoration: none;
 }
 
 button.enter-site, button.back-to-browse-button {
