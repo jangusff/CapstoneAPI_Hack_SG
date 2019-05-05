@@ -7,7 +7,7 @@ Discover the films of Studio Ghibli. With this application, users will be able t
 *****
 Demo of Live App
 -------
-Found here: <https://jangusff.github.io/CapstoneAPI_Hack_SG/>
+Found here: <https://jangusff.github.io/DiscoverStudioGhibli/>
 *****
 Screenshots
 -------
