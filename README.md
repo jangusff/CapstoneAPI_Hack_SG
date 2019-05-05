@@ -12,13 +12,13 @@ Found here: <https://jangusff.github.io/DiscoverStudioGhibli/>
 Screenshots
 -------
 *Intro Page:*
-![intro page screenshot](https://jangusff.github.io/CapstoneAPI_Hack_SG/images/SG_IntroPage.jpg "Introduction")
+![intro page screenshot](https://jangusff.github.io/DiscoverStudioGhibli/images/SG_IntroPage.jpg "Introduction")
 
 *Browse Films Page:*
-![Browse page screenshot](https://jangusff.github.io/CapstoneAPI_Hack_SG/images/SG_BrowseView.jpg "Browse Films")
+![Browse page screenshot](https://jangusff.github.io/DiscoverStudioGhibli/images/SG_BrowseView.jpg "Browse Films")
 
 *Film Details Page:*
-![Details page screenshot](https://jangusff.github.io/CapstoneAPI_Hack_SG/images/SG_DetailsView.jpg "Display Film Details")
+![Details page screenshot](https://jangusff.github.io/DiscoverStudioGhibli/images/SG_DetailsView.jpg "Display Film Details")
 
 ******
 Technology Summary
