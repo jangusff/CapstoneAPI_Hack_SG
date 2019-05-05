@@ -117,6 +117,7 @@ function renderDetailsView(targetID) {
     let castHtml = '';
     let trailerHtml = '';
 
+    $('.details-title').html(`${filmTitle}`).append(`<span class="details-title-reldate">(${filmRelease})</span>`);
     $('.details.feature-img').html(`<img src="images/${targetID}.jpg" alt="${filmTitle}">`);
     $('.details.film-descrip').html(`<h2>Description</h2>
         <p>${filmDescr}</p>`

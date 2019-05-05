@@ -158,6 +158,22 @@ button.back-to-browse-button {
   max-width: 900px;
 }
 
+.details-title {
+  background-color: #2A8596;
+  font-family: 'Baloo', cursive;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.details-title-reldate {
+  padding-left: 15px;
+  font-size: 14px;
+}
+
 .details.feature-img {
   float: right;
   width: 33%;
@@ -235,6 +251,10 @@ button.back-to-browse-button {
 
   .card-title {
     font-size: 24px;
+  }
+
+  .details-title {
+    font-size: 30px;
   }
 
   .iframe-container iframe {
